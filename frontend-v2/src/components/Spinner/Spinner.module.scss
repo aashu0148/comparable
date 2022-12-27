@@ -1,0 +1,50 @@
+@import "styles/variables";
+
+.container {
+  width: 36px;
+  height: 36px;
+  border-top: 5px solid $primary;
+  border-right: 5px solid transparent;
+  border-radius: 50%;
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  @keyframes spinner {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .circle {
+    width: 5px;
+    height: 5px;
+    background-color: $primary;
+    border-radius: 50%;
+    margin-left: 28px;
+    margin-top: 0px;
+  }
+}
+
+.white {
+  border-top-color: $white !important;
+
+  .circle {
+    background-color: $white;
+  }
+}
+
+.small {
+  width: 18px;
+  height: 18px;
+  border-top: 3px solid $primary;
+  border-right: 3px solid transparent;
+
+  .circle {
+    height: 2.5px;
+    width: 2.5px;
+    margin-left: 13.5px;
+    margin-top: -0.5px;
+  }
+}

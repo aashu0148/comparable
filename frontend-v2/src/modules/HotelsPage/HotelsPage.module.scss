@@ -1,0 +1,795 @@
+@import "styles/variables";
+
+@keyframes backgroundBlink {
+  0% {
+    background-color: $light-blue;
+  }
+  50% {
+    background-color: $light-red;
+  }
+  100% {
+    background-color: $light-blue;
+  }
+}
+
+.connectionLost {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  animation: backgroundBlink 2s linear infinite;
+  z-index: 15;
+
+  .top {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    svg {
+      height: 18px;
+      width: 18px;
+      stroke: $red;
+    }
+
+    p {
+      color: $red;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+
+  .desc {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.spinner {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+  padding-bottom: 150px;
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+  height: fit-content;
+
+  & > * {
+    z-index: 5;
+  }
+
+  .parallax {
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 1;
+
+    @media (max-width: $breakpoint-sm) {
+      display: none;
+    }
+  }
+
+  .header {
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 0;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .title {
+        font-weight: bold;
+        font-size: 45px;
+        line-height: 55px;
+
+        span {
+          font-weight: bold;
+          font-size: 45px;
+          line-height: 55px;
+          width: fit-content;
+          display: inline;
+          position: relative;
+
+          img {
+            position: absolute;
+            bottom: -8px;
+            left: -3px;
+            width: 105%;
+            max-height: 15px;
+          }
+        }
+      }
+
+      .desc {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 33px;
+        color: $gray-3;
+      }
+
+      button {
+        margin-top: 30px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 33px;
+        border-radius: 10px;
+
+        svg {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+
+    .right {
+      img {
+        max-width: 50vw;
+        max-height: 550px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .globalError {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .desc {
+      font-size: 14px;
+      font-weight: 500;
+      color: $gray-3;
+    }
+  }
+
+  .searchBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+    padding: 40px 10px;
+    z-index: 12;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -200px;
+      height: 100%;
+      width: calc(100% + 400px);
+      background-color: $gray-1;
+      z-index: 1;
+    }
+
+    .guestSection,
+    .dateSection,
+    .searchSection,
+    .heading,
+    .inner {
+      z-index: 5;
+    }
+
+    .error {
+      z-index: 4;
+    }
+
+    .heading {
+      font-weight: bold;
+      font-size: 38px;
+      line-height: 45px;
+    }
+
+    .inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+      background-color: $white;
+      border-radius: 10px;
+
+      .bar {
+        width: 1px;
+        height: 60px;
+        background-color: $gray-3;
+      }
+
+      .searchSection {
+        flex: 1;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 20px;
+        padding-right: 10px;
+        position: relative;
+
+        svg {
+          height: 22px;
+          width: 22px;
+          stroke: $black;
+        }
+
+        input {
+          background-color: $white;
+          border: none !important;
+          padding: 10px 5px;
+          height: 100%;
+        }
+
+        .suggestions {
+          padding-top: 10px;
+          top: calc(100% - 6px);
+          width: 100%;
+          max-width: 100%;
+          border-radius: 10px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border: none;
+          display: flex;
+          flex-direction: column;
+          max-height: 225px;
+          overflow-y: auto;
+
+          .info {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+          }
+
+          .suggestionsLoading {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+
+            .progressContainer {
+              margin-bottom: 10px;
+            }
+          }
+
+          .suggestion {
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid $gray-1;
+            transition: 200ms;
+
+            &:last-child {
+              border: none;
+            }
+
+            &:hover {
+              background-color: $bluish-white;
+            }
+
+            p {
+              cursor: pointer;
+              width: 100%;
+              font-size: 16px;
+              font-weight: 500;
+            }
+
+            svg {
+              cursor: pointer;
+              height: 18px;
+              width: 18px;
+            }
+          }
+        }
+      }
+
+      .dateSection {
+        position: relative;
+        padding: 0px 15px;
+        display: flex;
+        gap: 15px;
+        min-width: 310px;
+        margin: 0 auto;
+
+        .separator {
+          margin-top: auto;
+          padding: 5px 0;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 16px;
+        }
+
+        .innerBox {
+          padding: 5px;
+          border-radius: 5px;
+          display: flex;
+          gap: 5px;
+          flex-direction: column;
+          cursor: pointer;
+          transition: 200ms;
+          background-color: $white;
+
+          &:hover {
+            background-color: $gray-1;
+          }
+
+          .info {
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 500;
+          }
+
+          .date {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            svg {
+              height: 16px;
+              width: 16px;
+              stroke-width: 2.5px;
+            }
+
+            .title {
+              font-weight: bold;
+              font-size: 16px;
+              line-height: 18px;
+            }
+          }
+        }
+      }
+
+      .guestSection {
+        position: relative;
+        padding: 5px 15px;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        cursor: pointer;
+        transition: 200ms;
+        background-color: $white;
+
+        &:hover {
+          background-color: $gray-1;
+        }
+
+        .info {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: 500;
+        }
+
+        .bottom {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          svg {
+            height: 16px;
+            width: 16px;
+            stroke-width: 2.5px;
+          }
+
+          .title {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 18px;
+          }
+        }
+      }
+
+      .button {
+        margin: 0 15px;
+      }
+
+      @keyframes blink {
+        0% {
+          background-color: $primary;
+        }
+        50% {
+          background-color: $secondary;
+        }
+        100% {
+          background-color: $primary;
+        }
+      }
+
+      .connecting {
+        animation: blink 2s linear infinite;
+        // color: $black;
+      }
+    }
+
+    .error {
+      color: $red;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .searchResults {
+    min-height: 45vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 22;
+
+      .title {
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      .sortButton {
+        position: relative;
+        font-weight: 500;
+        border-color: $black;
+        color: $black;
+
+        svg {
+          height: 18px;
+          width: 18px;
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+
+        .list {
+          min-width: 150px;
+          width: fit-content;
+          overflow: hidden;
+
+          .item {
+            text-align: start;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid $gray-1;
+            font-size: 16px;
+            font-weight: 500;
+
+            &:last-child {
+              border: none;
+            }
+
+            &:hover {
+              background-color: $light-blue;
+            }
+          }
+        }
+      }
+    }
+
+    .topDiv {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .sectionsContainer {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .sections {
+      margin-top: 10px;
+      padding: 1px;
+      width: fit-content;
+      min-width: 100%;
+      border-radius: 10px;
+      background-color: $gray-1;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 2px;
+      overflow: hidden;
+
+      .section {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        padding: 15px;
+        transition: 200ms;
+        cursor: pointer;
+        text-transform: capitalize;
+
+        &:hover {
+          background-color: $bluish-white;
+        }
+
+        &:first-child {
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+      }
+
+      .selected {
+        background-color: $white;
+
+        &:hover {
+          background-color: $white;
+        }
+      }
+    }
+
+    .loadingResults {
+      padding-top: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: $white-1;
+      border-radius: 5px;
+
+      .top {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        p {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .cards {
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+
+      .empty {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        img {
+          height: 38px;
+          width: 38px;
+        }
+
+        .title {
+          text-align: center;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .desc {
+          color: $gray-3;
+          max-width: 400px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    gap: 50px;
+    padding: 10px 5px;
+    padding-bottom: 80px;
+
+    .header {
+      flex-direction: column-reverse;
+      padding: 10px;
+
+      .left {
+        gap: 20px;
+
+        .title,
+        .title span {
+          font-size: 28px;
+          line-height: 38px;
+        }
+
+        .desc {
+          font-size: 16px;
+          line-height: 28px;
+        }
+
+        button {
+          margin-top: 0;
+          font-size: 16px;
+
+          svg {
+            height: 18px;
+            width: 18px;
+          }
+        }
+      }
+
+      .right {
+        img {
+          max-width: 80vw;
+        }
+      }
+    }
+
+    .searchBox {
+      padding: 30px 0px;
+
+      .inner {
+        gap: 10px;
+
+        .bar {
+          display: none;
+        }
+
+        .searchSection {
+          gap: 5px;
+          padding: 10px;
+          z-index: 1;
+
+          .suggestions {
+            .info {
+              font-size: 14px;
+              text-align: start;
+            }
+          }
+
+          .searchIcon {
+            display: flex;
+            align-items: center;
+
+            svg {
+              height: 14px;
+              width: 14px;
+            }
+          }
+
+          svg {
+            height: 18px;
+            width: 18px;
+          }
+
+          input {
+            padding: 5px 0px;
+          }
+
+          button {
+            margin-left: 5px;
+          }
+        }
+
+        .dateSection {
+          padding: 0px 10px;
+          gap: 10px;
+          // border: 1px solid $gray-1;
+          z-index: 10;
+          margin: 0;
+
+          .separator {
+            font-size: 18px;
+          }
+
+          .innerBox {
+            &:hover {
+              background-color: $white;
+            }
+
+            .date {
+              gap: 5px;
+
+              svg {
+                height: 14px;
+                width: 14px;
+                stroke-width: 2px;
+              }
+
+              .title {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        .guestSection {
+          padding: 5px 10px;
+          width: 100%;
+          z-index: 5;
+
+          &:hover {
+            background-color: $white;
+          }
+
+          .info {
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 500;
+          }
+
+          .bottom {
+            gap: 5px;
+
+            svg {
+              height: 14px;
+              width: 14px;
+              stroke-width: 2px;
+            }
+
+            .title {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .button {
+          margin: 0;
+          margin-right: 15px;
+        }
+      }
+
+      .error {
+        font-size: 12px;
+      }
+    }
+
+    .searchResults {
+      gap: 20px;
+
+      .head {
+        .title {
+          font-size: 16px;
+        }
+
+        .sortButton {
+          font-size: 14px;
+
+          svg {
+            height: 16px;
+            width: 16px;
+          }
+
+          .list {
+            min-width: 120px;
+
+            .item {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .sections {
+        .section {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+
+      .cards {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+      }
+    }
+  }
+}

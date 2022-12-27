@@ -1,0 +1,310 @@
+@import "variables";
+
+.container {
+  display: flex;
+  border-radius: 4px;
+  border: 1px solid $bg-medium-gray;
+  min-height: 200px;
+  height: fit-content;
+  width: 100%;
+  max-width: 450px;
+  @media (max-width: 500px) {
+    max-width: 95vw;
+  }
+  position: relative;
+
+  .keyFeaturesModal,
+  .offersModal {
+    padding-bottom: 20px;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      color: $text-secondary;
+      font-size: 14px;
+      padding: 10px 20px;
+      line-height: 22px;
+      border-bottom: 1px solid $bg-medium-gray;
+      position: relative;
+      list-style: decimal;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    .selected {
+      background-color: $light-green;
+      color: $text-dark;
+    }
+  }
+
+  .keyFeaturesModal li {
+    list-style: disc;
+  }
+
+  .tags {
+    position: absolute;
+    height: 24px;
+    right: 16px;
+    top: -11px;
+    display: flex;
+    gap: 15px;
+
+    .tag {
+      height: 24px;
+      border-radius: 3px;
+      border: 1px solid $bg-medium-gray;
+      padding: 2px 4px;
+      background-color: #fefefe;
+      overflow-y: hidden;
+
+      img {
+        max-height: 18px;
+      }
+    }
+
+    .share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: 200ms;
+
+      p {
+        font-size: 12px;
+        color: $text-primary;
+        font-weight: bold;
+      }
+
+      svg {
+        height: 14px;
+        width: 14px;
+        stroke: $text-primary;
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  .left {
+    align-self: stretch;
+    padding: 7px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-light-gray;
+
+    img {
+      width: 116px;
+      max-height: 190px;
+      object-fit: contain;
+    }
+  }
+
+  .right {
+    align-self: stretch;
+    min-width: 190px;
+    padding: 15px 7px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .title {
+      color: $text-dark;
+      font-weight: 600;
+      font-size: 13.6px;
+      line-height: 21.6px;
+    }
+
+    .ratingsContainer {
+      display: flex;
+      gap: 8px;
+
+      .reviews {
+        color: $text-secondary;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20.8px;
+      }
+    }
+
+    .star {
+      height: 14px;
+      width: 14px;
+      stroke-width: 1px;
+      color: $text-dark;
+    }
+
+    .filledStar {
+      fill: $bg-yellow;
+      color: $bg-yellow;
+    }
+
+    .offerText {
+      white-space: nowrap;
+      color: $text-dark-green;
+      font-weight: 500;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      span {
+        border: 1px solid $bg-dark-green;
+        border-radius: 4px;
+        padding: 0 4px;
+        font-weight: bold;
+        transition: 200ms;
+        cursor: pointer;
+        height: 16px;
+        line-height: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:active {
+          transform: translateY(1px);
+        }
+      }
+    }
+
+    .keyFeature {
+      color: $text-secondary;
+      font-size: 11.5px;
+
+      span {
+        color: $text-primary;
+        border-color: $text-primary;
+      }
+    }
+
+    .pricesContainer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+
+      .offerPriceContainer {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        font-size: 14px;
+
+        .price {
+          font-size: 14px;
+          font-weight: bold;
+          color: $text-dark-green;
+        }
+
+        span {
+          white-space: nowrap;
+          border: 1px solid $bg-primary;
+          color: $text-primary;
+          border-radius: 4px;
+          padding: 0 4px;
+          font-weight: bold;
+          transition: 200ms;
+          cursor: pointer;
+          height: 16px;
+          // line-height: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:active {
+            transform: translateY(1px);
+          }
+        }
+      }
+
+      .priceContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+          font-weight: bold;
+          color: $text-primary;
+        }
+
+        .offer {
+          padding: 0px 6px;
+          border-radius: 20px;
+          background-color: $bg-dark-green;
+          color: #fefefe;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1px;
+          width: fit-content;
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 2px;
+          align-items: center;
+          cursor: pointer;
+
+          svg {
+            color: $white;
+            height: 12px;
+            width: 12px;
+          }
+        }
+
+        .offersLoading {
+          height: 20px;
+          border-radius: 20px;
+          width: 70px;
+        }
+
+        .grayed {
+          background-color: $bg-medium-gray;
+          color: $text-secondary;
+
+          svg {
+            color: $text-secondary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loadingContainer {
+  .left {
+    width: 140px;
+    height: 176px;
+    margin: 12px 10px;
+  }
+
+  .right {
+    .top {
+      height: 60px;
+      width: 100%;
+    }
+
+    .middle {
+      height: 22px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .footerLeft,
+      .footerRight {
+        width: 90px;
+        height: 22px;
+        border-radius: 20px;
+      }
+    }
+  }
+}

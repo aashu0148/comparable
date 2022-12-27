@@ -1,0 +1,110 @@
+@import "variables.scss";
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 40px;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  overflow: auto;
+  background-color: $bg-black-translucent;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+
+  .inner {
+    height: fit-content;
+    width: fit-content;
+    min-width: 500px;
+    background-color: $white;
+    border-radius: 5px;
+    animation: scaleUp 500ms;
+    transform-origin: center center;
+  }
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .preventAnimation {
+    animation: none;
+  }
+}
+
+.mobileContainer {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  background-color: $bg-black-translucent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 30;
+
+  @keyframes moveup {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .inner {
+    width: 100vw;
+    height: fit-content;
+    max-height: 80%;
+    background-color: $white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    animation: moveup 0.5s forwards;
+    overflow-y: auto;
+
+    .modalTitle {
+      position: sticky;
+      top: 0;
+      background-color: $white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      z-index: 10;
+
+      .heading {
+        font-size: 1rem;
+        font-weight: bold;
+        color: $text-dark;
+      }
+
+      svg {
+        color: $text-secondary;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.modalWithTitle {
+  .inner {
+    padding-top: 0 !important;
+  }
+}

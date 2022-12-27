@@ -1,0 +1,116 @@
+@import "variables";
+
+.spinner {
+  width: 100%;
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .card {
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+    background-color: $white;
+    padding: 15px;
+    min-width: 150px;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .title {
+      font-weight: bold;
+      font-size: 1rem;
+      color: $text-dark;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        background-color: $light-purple;
+
+        .category {
+          color: $text-dark;
+          font-size: 0.875rem;
+          font-weight: 500;
+          text-transform: capitalize;
+        }
+
+        .req {
+          font-weight: bold;
+          font-size: 1rem;
+          color: $text-dark;
+        }
+
+        .user {
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: $text-secondary;
+
+          span {
+            text-transform: capitalize;
+            font-weight: bold;
+            color: $text-primary;
+          }
+        }
+
+        .comparison {
+          font-size: 0.75rem;
+          font-weight: 500;
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          color: $text-secondary;
+
+          span {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+            font-weight: bold;
+            color: $text-green;
+
+            svg {
+              height: 14px;
+              width: 14px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+          .red {
+            color: $text-red;
+          }
+        }
+      }
+
+      .general {
+        background-color: $general-shade;
+      }
+      .fashion {
+        background-color: $fashion-shade;
+      }
+      .custom {
+        background-color: $custom-shade;
+      }
+      .electronics {
+        background-color: $electronics-shade;
+      }
+    }
+  }
+}

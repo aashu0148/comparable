@@ -1,0 +1,31 @@
+@import "styles/variables";
+
+.container {
+  width: 100%;
+  border-color: $white;
+  top: 100%;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .heading {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .calendar {
+    border: none;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    left: 10px;
+    top: calc(100% + 2px);
+    box-shadow: $shadow-1;
+    padding: 20px;
+
+    .heading {
+      font-size: 18px;
+    }
+  }
+}

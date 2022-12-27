@@ -1,0 +1,196 @@
+@import "variables.scss";
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  .shadedBox {
+    height: 155px;
+    width: 206%;
+    position: absolute;
+    left: -193px;
+    top: 45%;
+    transform: rotate(140deg);
+    background: linear-gradient(202deg, #25eef4, #258cf4, #25f4f4);
+    background: linear-gradient(309deg, #25eef4, #258cf4, #25f4f4, #c1e3f5);
+    z-index: -1;
+
+    @media (min-width: 600px) {
+      display: none;
+    }
+  }
+
+  .betaSection {
+    width: 100%;
+    height: 60px;
+
+    .betaContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px solid $light-blue;
+      display: flex;
+      align-items: center;
+      background-color: $bg-bluish-white;
+      padding: 5px;
+      gap: 10px;
+      width: 100%;
+      color: $text-secondary;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+
+      img {
+        height: 60px;
+        width: auto;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Roboto";
+    margin-bottom: 30px;
+    margin-top: 15px;
+
+    .title {
+      font-size: 38px;
+      font-weight: bold;
+      color: $text-primary;
+      width: 100%;
+      text-align: center;
+      line-height: 38px;
+      position: relative;
+    }
+
+    .subTitle {
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: $text-dark;
+      font-weight: 500;
+      text-shadow: 1px 1px 1px $white;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 5px;
+
+      span {
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+
+    .desc {
+      color: $text-secondary;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      text-shadow: 1px 1px 1px $white;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .row,
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 20px;
+
+      a {
+        text-decoration: none;
+      }
+
+      .box {
+        max-width: 180px;
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: $bg-light-gray;
+        border: 1px solid $bg-medium-gray;
+        box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+        transition: 200ms;
+        cursor: pointer;
+
+        &:active {
+          transform: translateY(2px);
+        }
+
+        .categoryCircle {
+          height: 110px;
+          width: 110px;
+          border-radius: 50%;
+          background-color: $light-white;
+          padding: 18px;
+
+          .imageSection {
+            display: flex;
+            gap: 5px;
+            justify-content: space-around;
+            align-items: center;
+
+            .image {
+              flex: 1;
+
+              img {
+                max-width: 100%;
+                object-fit: contain;
+                filter: drop-shadow(-1px 1px 0 #fff);
+              }
+            }
+          }
+        }
+
+        .name {
+          color: #191e22;
+          font-weight: 500;
+          font-size: 16px;
+          text-decoration: none;
+          text-transform: capitalize;
+        }
+      }
+
+      .generalBox {
+        background-color: $light-pink;
+      }
+      .electronicsBox {
+        background-color: $light-violet;
+      }
+      .fashionBox {
+        background-color: $light-yellow;
+      }
+      .mobilesBox {
+        background-color: $light-orange;
+      }
+    }
+
+    .cards {
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 30px;
+      padding-bottom: 40px;
+
+      @media (min-width: 700px) {
+        & {
+          transform: scale(1.22) translateY(40px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.container {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+  column-gap: 2px !important;
+
+  @media (min-width: 700px) {
+    gap: 30px;
+    column-gap: 15px !important;
+  }
+}

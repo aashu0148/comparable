@@ -1,0 +1,78 @@
+@import "variables.scss";
+
+.HorizontalProductSection {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 10px 15px;
+
+  .genderSpecificFashion {
+    display: flex;
+    gap: 20px;
+    overflow: auto;
+    .searchSelectionCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .imageBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+        background-color: $bg-medium-gray;
+
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          border-radius: 50%;
+          object-fit: contain;
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .scrollableChild {
+    display: flex;
+    gap: 20px;
+    overflow: auto;
+    align-items: flex-start;
+    .searchSelectionCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .imageBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+        background-color: $bg-medium-gray;
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          border-radius: 50%;
+          object-fit: contain;
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

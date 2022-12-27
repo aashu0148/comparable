@@ -1,0 +1,139 @@
+@import "variables.scss";
+
+.filter{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    .header{
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 10px 20px;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        .title{
+            font-weight: bold;
+        }
+        .clearFilter{
+            cursor: pointer;
+            color: $bg-primary;
+        }
+    }
+
+    .innerContainer{
+        border-bottom: 1px solid $bg-medium-gray;
+        display: flex;
+        .leftSide{
+            position: sticky;
+            top: 44px;
+            align-self: flex-start;
+            border-right: 1px solid $bg-medium-gray;
+            background-color: $bg-light-gray;
+            min-height: 65vh;
+            li{
+                padding: 12px 18px;
+                border-bottom: 1px solid $bg-medium-gray;
+                cursor: pointer;
+
+                &:active{
+                    background-color: $white;
+                }
+
+                &:hover{
+                    background-color: $white;
+                }
+                p{
+                    position: relative;
+                .active{
+                    position: absolute;
+                    top: 0;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 50%;
+                    background-color: $bg-red;
+                }
+            }
+            }
+            .activeFilter{
+                background-color: $white;
+            }
+        }
+        .rightSide{
+            width: 100%;
+            .priceSlider{
+                display: flex;
+                flex-direction: column;
+
+                .showRange{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                        color: $bg-primary;
+                        b{
+                            color: $text-dark;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+            li{
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                padding: 12px 18px;
+                border-bottom: 1px solid $bg-medium-gray;
+                cursor: pointer;
+
+               
+            }
+        }
+
+    }
+
+
+    .filterButtonContainer{
+        width: 100%;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: $white;
+        flex: 1 1;
+        border: 1px solid $bg-medium-gray;
+          .button{
+            width: 100%;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-right: 1px solid $bg-medium-gray;
+            
+            &:hover{
+                background-color: $bg-light-gray;
+            }
+        }
+
+        .applyButton{
+            color: $white;
+            background-color: $bg-primary;
+
+            &:hover{
+                background-color: $bg-light-gray;
+                color: $text-dark;
+            }
+        }
+      
+      }
+
+   
+}
+

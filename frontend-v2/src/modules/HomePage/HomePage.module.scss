@@ -1,0 +1,329 @@
+@import "styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  position: relative;
+  padding-bottom: 100px;
+
+  .polkaDot {
+    position: absolute;
+    top: -120px;
+    left: -120px;
+    width: calc(100vw + 130px);
+    z-index: 1;
+    height: 800px;
+    max-height: 100vh;
+    object-fit: cover;
+  }
+
+  .header {
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 0;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .title {
+        font-weight: bold;
+        font-size: 45px;
+        line-height: 55px;
+
+        span {
+          font-weight: bold;
+          font-size: 45px;
+          line-height: 55px;
+          width: fit-content;
+          display: inline;
+          position: relative;
+
+          img {
+            position: absolute;
+            bottom: -8px;
+            left: -3px;
+            width: 105%;
+            max-height: 15px;
+          }
+        }
+      }
+
+      .desc {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 33px;
+        color: $gray-3;
+      }
+
+      button {
+        margin-top: 30px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 33px;
+        border-radius: 10px;
+
+        svg {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+
+    .right {
+      img {
+        max-width: 50vw;
+        max-height: 550px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .why {
+    padding-top: 20px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .title {
+      font-weight: bold;
+      font-size: 45px;
+      line-height: 55px;
+    }
+
+    .inner {
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      .left {
+        img {
+          max-width: 45vw;
+          max-height: 550px;
+          object-fit: contain;
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .title {
+            font-weight: bold;
+            font-size: 28px;
+            line-height: 34px;
+          }
+
+          .desc {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
+
+            span {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .offering {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .title {
+      font-weight: bold;
+      font-size: 45px;
+      line-height: 55px;
+    }
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 30px;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          .title {
+            max-width: 640px;
+            font-weight: bold;
+            font-size: 34px;
+            line-height: 48px;
+          }
+
+          .desc {
+            max-width: 585px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 33px;
+            color: $gray-3;
+          }
+
+          button {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 33px;
+            border-radius: 10px;
+
+            svg {
+              height: 20px;
+              width: 20px;
+            }
+          }
+        }
+
+        .right {
+          img {
+            max-width: 45vw;
+            max-height: 550px;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .reverse {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 20px;
+    gap: 50px;
+
+    .header {
+      flex-direction: column;
+      gap: 40px;
+
+      .left {
+        .title,
+        .title span {
+          font-size: 28px;
+          line-height: 38px;
+        }
+
+        .desc {
+          font-size: 16px;
+          line-height: 29px;
+        }
+
+        button {
+          margin-top: 0;
+          font-size: 16px;
+        }
+      }
+
+      .right {
+        img {
+          width: 100%;
+          max-width: 550px;
+        }
+      }
+    }
+
+    .why {
+      .title {
+        font-size: 28px;
+        line-height: 38px;
+      }
+
+      .inner {
+        flex-direction: column;
+
+        .left {
+          img {
+            width: 100%;
+            max-width: 560px;
+          }
+        }
+
+        .right {
+          .info {
+            .title {
+              font-size: 22px;
+              line-height: 28px;
+            }
+
+            .desc {
+              font-size: 14px;
+              line-height: 25px;
+            }
+          }
+        }
+      }
+    }
+
+    .offering {
+      .title {
+        font-size: 28px;
+        line-height: 38px;
+      }
+
+      .inner {
+        gap: 60px;
+
+        .section {
+          flex-direction: column-reverse;
+          gap: 40px;
+
+          .left {
+            gap: 20px;
+
+            .title {
+              font-size: 22px;
+              line-height: 32px;
+            }
+
+            .desc {
+              font-size: 14px;
+              line-height: 25px;
+            }
+
+            button {
+              font-size: 14px;
+              margin-top: 0;
+
+              svg {
+                height: 16px;
+                width: 16px;
+              }
+            }
+          }
+
+          .right {
+            img {
+              margin-bottom: -30px;
+              width: 100%;
+              max-width: 560px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

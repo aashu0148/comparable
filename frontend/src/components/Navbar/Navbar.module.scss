@@ -1,0 +1,423 @@
+@import "variables.scss";
+
+.container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background-color: $bg-light-gray;
+  justify-content: space-between;
+  color: $text-dark;
+  border-bottom: 1px solid $bg-medium-gray;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  z-index: 20;
+
+  .link {
+    padding: 3px;
+    p {
+      font-size: 16px;
+    }
+  }
+  .logo {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    .logoInner {
+      display: flex;
+      align-items: flex-end;
+
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+      }
+
+      p {
+        font-size: 30.4px;
+        font-weight: bold;
+        color: transparent;
+        background: linear-gradient(353deg, #25eef4, #258cf4, #25f4f4);
+        background-clip: text;
+        font-family: inherit;
+        transform: translate(-3px, 1px);
+        line-height: 31px;
+      }
+
+      @media (max-width: 380px) {
+        img {
+          height: 28px;
+          width: 28px;
+        }
+        p {
+          font-size: 25px;
+          line-height: 26px;
+        }
+      }
+    }
+
+    p {
+      color: $text-primary;
+      font-size: 24px;
+      font-weight: bolder;
+    }
+
+    .status {
+      height: 13px;
+      width: 13px;
+      border-radius: 50%;
+      background-color: $bg-primary;
+    }
+
+    .connecting {
+      animation: blink infinite linear 2s;
+    }
+
+    .broken {
+      background-color: $bg-red;
+      animation: blink infinite linear 2s;
+    }
+
+    .active {
+      background-color: $bg-green;
+    }
+
+    @keyframes blink {
+      20% {
+        opacity: 0.2;
+      }
+      60% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .rightSide {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .profile {
+      position: relative;
+      padding: 0;
+      color: $text-dark;
+      background-color: $bg-bluish-white;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: none;
+      border: 2px solid $bg-medium-gray;
+      border-radius: 50%;
+
+      .initials {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        font-size: 16px;
+        line-height: 16px;
+        text-transform: uppercase;
+        background-color: $bg-bluish-white;
+        font-weight: 500;
+        color: $text-primary;
+      }
+
+      .profileDropdown {
+        position: absolute;
+        border-radius: 5px;
+        border: 1px solid $bg-medium-gray;
+
+        li {
+          padding: 12px 16px;
+          border-bottom: 1px solid $bg-medium-gray;
+          color: $text-dark;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          white-space: nowrap;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:hover {
+            color: $text-primary;
+
+            svg {
+              stroke: $text-primary !important;
+            }
+          }
+
+          svg {
+            height: 15px;
+            width: 15px;
+            stroke: $text-dark;
+          }
+        }
+      }
+    }
+
+    .theme {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+      background-color: $white;
+      border-radius: 50%;
+
+      svg {
+        stroke: $text-dark;
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    .feedbackIcon {
+      margin: 0 5px;
+      color: $text-dark;
+      font-weight: 500;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        color: $text-dark;
+        height: 14px;
+        width: 14px;
+      }
+    }
+  }
+
+  .enterNameModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      width: 90vw;
+      max-width: 600px;
+    }
+
+    .modalChild {
+      background-color: $white;
+      border-radius: 20px;
+      padding: 15px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+
+      p {
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .buttonContainer {
+        display: flex;
+        gap: 12px;
+      }
+    }
+  }
+
+  .feedBackModal {
+    display: flex;
+    align-items: center;
+
+    .mainContainer {
+      background-color: $white;
+      border-radius: 20px;
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      gap: 20px;
+      padding-top: 0;
+
+      .title {
+        color: $text-dark;
+        font-size: 17.6px;
+        font-weight: 600;
+      }
+
+      .feedbackForm {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .emailInput {
+          width: 400;
+          max-width: 100%;
+        }
+
+        .emailSection {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .emailLabel {
+            font-size: 16px;
+            color: $text-dark;
+            font-weight: 500;
+          }
+        }
+
+        .prioritySection {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          .optionContainer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .priorityOption {
+              border-radius: 100px;
+              width: fit-content;
+              border: 1px solid $bg-dark;
+              padding: 3px 10px;
+              outline: none;
+              cursor: pointer;
+
+              p {
+                font-size: 14px;
+              }
+
+              &:hover {
+                border: 1px solid $bg-primary;
+                p {
+                  color: $text-primary;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .unactiveHigh {
+              &:hover {
+                border: 1px solid $text-red;
+                background-color: $bg-light-gray;
+                p {
+                  color: $text-red;
+                  font-size: 14px;
+                }
+              }
+            }
+            .unactiveMedium {
+              &:hover {
+                border: 1px solid $text-orange;
+                background-color: $bg-light-gray;
+                p {
+                  color: $text-orange;
+                  font-size: 14px;
+                }
+              }
+            }
+            .unactiveLow {
+              &:hover {
+                border: 1px solid $text-primary;
+                background-color: $bg-light-gray;
+                p {
+                  color: $text-primary;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .high {
+              border: 1px solid $text-red;
+              background-color: $bg-light-gray;
+              p {
+                color: $text-red;
+                font-size: 14px;
+              }
+            }
+            .medium {
+              border: 1px solid $text-orange;
+              background-color: $bg-light-gray;
+              p {
+                color: $text-orange;
+                font-size: 14px;
+              }
+            }
+            .low {
+              border: 1px solid $text-primary;
+              background-color: $bg-light-gray;
+              p {
+                color: $text-primary;
+                font-size: 14px;
+              }
+            }
+          }
+
+          p {
+            color: $text-dark;
+            font-weight: 500;
+            font-size: 16px;
+          }
+
+          .error {
+            font-size: 14px;
+            color: $text-red;
+          }
+        }
+
+        .suggestionBox {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          .suggetionInput {
+            margin: 0;
+            height: 150px;
+            width: 100%;
+            font-size: 14px;
+            outline: none;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid $bg-medium-gray;
+            color: $text-dark;
+            transition: 200ms;
+            resize: none;
+            background-color: $white;
+
+            &::placeholder {
+              color: $text-tertiary;
+            }
+
+            &:hover {
+              border-color: $bg-dark;
+            }
+
+            &:focus {
+              border-color: $bg-primary;
+            }
+            &:disabled {
+              background-color: $bg-medium-gray;
+              border-color: $bg-medium-gray;
+            }
+          }
+          p {
+            color: $text-dark;
+            font-weight: 500;
+            font-size: 16px;
+          }
+          span {
+            font-size: 14px;
+          }
+          .error {
+            font-size: 14px;
+            color: $text-red;
+          }
+        }
+      }
+
+      .buttonContainer {
+        display: flex;
+        align-self: flex-end;
+        gap: 10px;
+      }
+    }
+  }
+}

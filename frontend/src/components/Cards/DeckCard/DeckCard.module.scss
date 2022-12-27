@@ -1,0 +1,157 @@
+@import "variables.scss";
+
+.fullWidth {
+  max-width: 450px !important;
+  min-width: 100% !important;
+  width: 100%;
+}
+.container {
+  height: 170px;
+  flex: 1;
+  min-width: 47%;
+  max-width: 50%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: 200ms;
+  position: relative;
+  @media (min-width: 500px) {
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
+
+  .expanded {
+    position: relative;
+    transform: scale(1.2);
+  }
+
+  .image {
+    height: 50px;
+    width: 50px;
+    background-color: #fefefe;
+    border-radius: 50%;
+    transition: 200ms;
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    color: #191e22;
+    font-size: 19.2px;
+    text-transform: capitalize;
+
+    span {
+      color: #191e22;
+      font-size: 16px;
+    }
+  }
+
+  .desc {
+    margin-top: -10px;
+    color: #525c67;
+    font-size: 14px;
+    z-index: 1;
+  }
+}
+
+.fullWidthEmpty {
+  max-width: 450px !important;
+  min-width: 100% !important;
+  width: 100%;
+}
+
+.empty {
+  height: 170px;
+  flex: 1;
+  min-width: 47%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  @media (min-width: 500px) {
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  .emoji {
+    font-size: 32px;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .desc {
+    text-align: center;
+    font-size: 12.8px;
+
+    span {
+      color: $text-primary;
+    }
+  }
+}
+
+.loading {
+  box-shadow: none !important;
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.amazonContainer {
+  background-color: $amazon-shade;
+  box-shadow: 1px 1px 12px $amazon-shade;
+}
+.flipkartContainer {
+  background-color: $flipkart-shade;
+  box-shadow: 1px 1px 12px $flipkart-shade;
+}
+.ajioContainer {
+  background-color: $ajio-shade;
+  box-shadow: 1px 1px 12px $ajio-shade;
+}
+.tatacliqContainer {
+  background-color: $tatacliq-shade;
+  box-shadow: 1px 1px 12px $tatacliq-shade;
+}
+.nykaaContainer {
+  background-color: $nykaa-shade;
+  box-shadow: 1px 1px 12px $nykaa-shade;
+}
+.meeshoContainer {
+  background-color: $meesho-shade;
+  box-shadow: 1px 1px 12px $meesho-shade;
+}
+.snapdealContainer {
+  background-color: $snapdeal-shade;
+  box-shadow: 1px 1px 12px $snapdeal-shade;
+}
+.relianceContainer {
+  background-color: $reliance-shade;
+  box-shadow: 1px 1px 12px $reliance-shade;
+}
+.cromaContainer {
+  background-color: $croma-shade;
+  box-shadow: 1px 1px 12px $croma-shade;
+}
+.shopcluesContainer {
+  background-color: $shopclues-shade;
+  box-shadow: 1px 1px 12px $shopclues-shade;
+}

@@ -1,0 +1,86 @@
+@import "variables.scss";
+
+.container {
+  display: flex;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  color: $text-secondary;
+  text-align: left;
+  width: fit-content;
+
+  .checkboxContainer {
+    height: fit-content;
+    width: fit-content;
+    max-height: 25px;
+  }
+
+  .checkbox {
+    width: 24px;
+    height: 24px;
+    border: 1px solid $bg-medium-gray;
+    background-color: $white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .checkIcon {
+      height: 14px;
+      color: $bg-medium-gray;
+    }
+    .active {
+      height: 14px;
+      color: $bg-primary;
+    }
+
+    .visible {
+      display: inline;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+
+  .radio {
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-medium-gray !important;
+
+    .visibleDot {
+      border-radius: 50%;
+      background-color: $text-secondary;
+      height: 8px;
+      width: 8px;
+    }
+  }
+
+  .checked {
+    background-color: $bg-medium-gray !important;
+  }
+
+  span {
+    width: 90%;
+    color: $text-secondary;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+  }
+}
+
+// @media (max-width: $md) {
+//     .container {
+//         & > span {
+//             font-size: 0.875rem;
+//         }
+//     }
+// }

@@ -1,0 +1,178 @@
+@import "styles/variables";
+
+.container {
+  width: fit-content;
+  min-width: 310px;
+  border-color: $white;
+  top: 100%;
+  left: -10px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .heading {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+
+      .title {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        user-select: none;
+
+        span {
+          font-size: 14px;
+          font-weight: 400;
+          color: $gray-3;
+        }
+      }
+
+      .button {
+        border-radius: 20px;
+        box-shadow: $shadow-1;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .icon {
+          padding: 10px;
+          cursor: pointer;
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 100ms;
+
+          &:hover {
+            background-color: $primary;
+
+            svg {
+              stroke: $white;
+            }
+          }
+
+          &:active {
+            transform: scale(0.9);
+          }
+
+          svg {
+            height: 16px;
+            width: 16px;
+            stroke: $primary;
+          }
+        }
+
+        p {
+          user-select: none;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 19px;
+        }
+      }
+    }
+
+    .select {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        user-select: none;
+      }
+
+      .agesContainer {
+        width: 100%;
+        max-width: 320px;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+          height: 4px !important;
+        }
+
+        .ages {
+          width: fit-content;
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 2px;
+
+          .age {
+            height: 25px;
+            padding: 7px;
+            font-size: 12px;
+            font-weight: 500;
+            background-color: $secondary;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 200ms;
+
+            &:hover {
+              background-color: $white;
+            }
+          }
+
+          .active {
+            color: $white;
+            background-color: $primary;
+
+            &:hover {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 20px;
+    left: 10px;
+    width: 90%;
+    box-shadow: $shadow-1;
+
+    .heading {
+      font-size: 18px;
+    }
+  }
+
+  .list {
+    .item {
+      .title {
+        font-size: 14px;
+
+        span {
+          font-size: 12px;
+        }
+      }
+
+      .button {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .select {
+      .title {
+        font-size: 12px;
+      }
+    }
+  }
+}

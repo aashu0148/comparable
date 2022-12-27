@@ -1,0 +1,14 @@
+@import "variables";
+
+.container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .heading {
+    font-weight: bold;
+    font-size: 1rem;
+    color: $text-dark;
+  }
+}

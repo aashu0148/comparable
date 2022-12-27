@@ -1,0 +1,106 @@
+:root {
+  --black: #0b0b0b;
+  --white: #fefefe;
+  --bg-primary: #258cf4;
+  --bg-secondary: #62aaf3;
+  --bg-light-gray: #f8f9fb;
+  --bg-medium-gray: #e8ebf3;
+  --bg-dark: #191e22;
+  --bg-red: #e64724;
+  --bg-green: #1ccb12;
+  --bg-dark-green: #109e0d;
+  --bg-yellow: #f3e11f;
+  --bg-bluish-white: #f6fbff;
+  --bg-black-translucent: rgba(0, 0, 0, 0.7);
+  --text-primary: #258cf4;
+  --text-secondary: #525c67;
+  --text-tertiary: #808080;
+  --text-dark: #191e22;
+  --text-red: #e64724;
+  --text-green: #1ccb12;
+  --text-dark-green: #109e0d;
+  --text-orange: #ea9f27;
+
+  --light-blue: #a2cefa;
+  --light-green: #cef2d9;
+  --light-yellow: #ecebd1;
+  --light-orange: #fdecde;
+  --light-pink: #fdd9e7;
+  --light-purple: #fccbf5;
+  --light-violet: #cec4e5;
+  --light-white: #f9f9f9;
+
+  // srcapper colors
+  --amazon-shade: #fff6ea;
+  --flipkart-shade: #fff9d4;
+  --tatacliq-shade: #ffdfdf;
+  --meesho-shade: #fff5fa;
+  --ajio-shade: #e6ebef;
+  --myntra-shade: #ff9fb6;
+  --croma-shade: #d7f6f2;
+  --reliance-shade: #e4e4ff;
+  --shopclues-shade: #dfeaec;
+  --snapdeal-shade: #fee7e6;
+  --nykaa-shade: #ffeaf4;
+
+  --box-shadow-1: rgba(0, 0, 0, 0.05);
+  --loading-gradient: linear-gradient(
+    110deg,
+    #ececec 27%,
+    #ffffff 37%,
+    #ececec 51%
+  );
+  --dark-png-filter: invert(9%) sepia(29%) saturate(317%) hue-rotate(164deg)
+    brightness(97%) contrast(96%);
+}
+
+$black: var(--black);
+$white: var(--white);
+
+// $bg-primary: rgb(244, 151, 37);
+$bg-primary: var(--bg-primary);
+$bg-secondary: var(--bg-secondary);
+$bg-light-gray: var(--bg-light-gray);
+$bg-medium-gray: var(--bg-medium-gray);
+$bg-dark: var(--bg-dark);
+$bg-red: var(--bg-red);
+$bg-green: var(--bg-green);
+$bg-dark-green: var(--bg-dark-green);
+$bg-yellow: var(--bg-yellow);
+$bg-bluish-white: var(--bg-bluish-white);
+$bg-black-translucent: var(--bg-black-translucent);
+
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-tertiary: var(--text-tertiary);
+$text-dark: var(--text-dark);
+$text-red: var(--text-red);
+$text-green: var(--text-green);
+$text-dark-green: var(--text-dark-green);
+$text-orange: var(--text-orange);
+
+$light-blue: var(--light-blue);
+$light-green: var(--light-green);
+$light-yellow: var(--light-yellow);
+$light-orange: var(--light-orange);
+$light-pink: var(--light-pink);
+$light-purple: var(--light-purple);
+$light-violet: var(--light-violet);
+$light-white: var(--light-white);
+
+// srcapper colors
+$amazon-shade: var(--amazon-shade);
+$flipkart-shade: var(--flipkart-shade);
+$tatacliq-shade: var(--tatacliq-shade);
+$meesho-shade: var(--meesho-shade);
+$ajio-shade: var(--ajio-shade);
+$myntra-shade: var(--myntra-shade);
+$croma-shade: var(--croma-shade);
+$reliance-shade: var(--reliance-shade);
+$shopclues-shade: var(--shopclues-shade);
+$snapdeal-shade: var(--snapdeal-shade);
+$nykaa-shade: var(--nykaa-shade);
+
+$box-shadow-1: var(--box-shadow-1);
+$loading-gradient: var(--loading-gradient);
+$dark-png-filter: var(--dark-png-filter);

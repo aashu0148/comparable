@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "node-html-parser": "^5.3.3",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^13.6.0",
+    "uuid": "^8.3.2"
+  },
+  "name": "consumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aashu0148/consumer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aashu0148/consumer/issues"
+  },
+  "homepage": "https://github.com/aashu0148/consumer#readme",
+  "engines": {
+    "node": "14.x"
+  }
+}

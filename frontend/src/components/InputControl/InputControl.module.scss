@@ -1,0 +1,87 @@
+@import "variables.scss";
+
+.container {
+  width: 100%;
+
+  .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-dark;
+    font-weight: bold;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .inputContainer {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+
+    .basic-input-error {
+      border: 1px solid $text-red !important;
+    }
+    input {
+      margin: 0;
+      height: 35px;
+      width: 100%;
+      font-size: 14px;
+      outline: none;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid $bg-medium-gray;
+      color: $text-dark;
+      transition: 200ms;
+      background-color: $white;
+
+      &::placeholder {
+        color: $text-secondary;
+      }
+
+      &:hover {
+        border-color: $bg-dark;
+      }
+
+      &:focus {
+        border-color: $bg-primary;
+      }
+      &:disabled {
+        background-color: $bg-medium-gray;
+        border-color: $bg-medium-gray;
+      }
+    }
+
+    .passwordInput {
+      padding-right: 31px;
+    }
+
+    .eye {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      cursor: pointer;
+      height: 18px;
+      width: 18px;
+      transform: translateY(-50%);
+
+      svg {
+        height: 100%;
+        width: 100%;
+        color: $text-dark;
+      }
+    }
+  }
+
+  .errorMsg {
+    color: $text-red;
+    font-weight: 500;
+    font-size: 12px;
+    padding-left: 3px;
+  }
+}
+
+.selectContainer {
+  margin: 3px 0;
+}

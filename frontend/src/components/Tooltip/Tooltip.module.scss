@@ -1,0 +1,108 @@
+@import "variables.scss";
+
+.container {
+  position: relative;
+
+  &:hover {
+    .tooltipContainer {
+      transition-delay: 500ms;
+      visibility: visible;
+      opacity: 1;
+      z-index: 20;
+    }
+  }
+
+  .tooltipContainer {
+    min-width: 125px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: $bg-dark;
+    color: $white;
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+    z-index: -1;
+    visibility: none;
+    opacity: 0;
+    transition: opacity 100ms linear, z-index 2s linear;
+    pointer-events: none;
+
+    .triangle {
+      position: absolute;
+      color: $text-dark;
+      fill: $bg-dark;
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  .top {
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+
+    .triangle {
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%) rotate(180deg);
+    }
+  }
+
+  .bottom {
+    left: 50%;
+    top: calc(100% + 8px);
+    transform: translateX(-50%);
+
+    .triangle {
+      left: 50%;
+      top: -8px;
+      transform: translateX(-50%);
+    }
+  }
+
+  .left {
+    top: 50%;
+    right: calc(100% + 8px);
+    transform: translateY(-50%);
+
+    .triangle {
+      top: 50%;
+      right: -8px;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  .right {
+    top: 50%;
+    left: calc(100% + 8px);
+    transform: translateY(-50%);
+
+    .triangle {
+      top: 50%;
+      left: -8px;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+
+  .topLeft {
+    left: 0;
+    bottom: calc(100% + 8px);
+
+    .triangle {
+      left: 12%;
+      bottom: -8px;
+      transform: rotate(180deg);
+    }
+  }
+
+  .topRight {
+    right: 0;
+    bottom: calc(100% + 8px);
+
+    .triangle {
+      right: 12%;
+      bottom: -8px;
+      transform: rotate(180deg);
+    }
+  }
+}

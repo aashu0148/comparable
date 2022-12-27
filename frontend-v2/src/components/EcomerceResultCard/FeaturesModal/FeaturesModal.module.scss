@@ -1,0 +1,89 @@
+@import "styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+  max-width: 900px;
+  overflow-x: hidden;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .heading {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    svg {
+      height: 22px;
+      width: 22px;
+    }
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+
+    .feature {
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $gray-1;
+      transition: 200ms;
+      z-index: 2;
+
+      &:last-child {
+        border: none;
+      }
+
+      p {
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      svg {
+        cursor: pointer;
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    .best {
+      background-color: $light-blue;
+      position: relative;
+
+      p {
+        z-index: 5;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100px;
+        height: 100%;
+        width: calc(100% + 200px);
+        background-color: $light-blue;
+        z-index: 1;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 25px 18px;
+    gap: 20px;
+
+    .features {
+      .feature {
+        padding: 8px 0;
+      }
+    }
+  }
+}

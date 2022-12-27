@@ -1,0 +1,88 @@
+@import "variables.scss";
+
+.CategorySearchOptions {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  .genderSpecificFashion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+    .searchSelectionCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 10px;
+      background-color: $bg-bluish-white;
+      box-shadow: 2px 3px 8px $box-shadow-1;
+      padding: 10px 5px;
+
+      .imageBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        padding: 2px;
+        background-color: $white;
+        overflow: hidden;
+
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          border-radius: 50%;
+          object-fit: contain;
+        }
+      }
+
+      p {
+        color: $text-dark;
+      }
+    }
+  }
+}
+
+.categorySpecificSelection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 10px;
+  .searchSelectionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 10px;
+
+    .imageBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      width: 100px;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: $bg-bluish-white;
+      box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 50%;
+        object-fit: contain;
+      }
+    }
+
+    p {
+      color: $text-dark;
+    }
+  }
+}

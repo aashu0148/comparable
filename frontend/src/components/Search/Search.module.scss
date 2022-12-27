@@ -1,0 +1,582 @@
+@import "variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 10;
+  padding-bottom: 54px;
+
+  .header {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg-bluish-white;
+
+    .title {
+      font-weight: 500;
+      color: $text-dark;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    background-color: $bg-bluish-white;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    z-index: 5;
+  }
+  .activeSearch {
+    display: flex;
+  }
+
+  .deactivateSearch {
+    display: none;
+  }
+
+  form {
+    padding-top: 5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    .input {
+      flex: 1;
+      position: relative;
+
+      .selectContainer {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 5px 0;
+        background-color: $white;
+        border: 1px solid $bg-primary;
+        border-top: none;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        max-height: 250px;
+        overflow-y: auto;
+
+        .loading {
+          padding: 6px 12px;
+          text-align: center;
+          font-weight: 500;
+          color: $text-dark;
+        }
+
+        .item {
+          border-bottom: 1px solid $bg-medium-gray;
+          padding: 6px 12px;
+          position: relative;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:hover {
+            background-color: $bg-light-gray;
+          }
+
+          .copy {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 6px 12px;
+            max-height: 100%;
+            background-color: $bg-light-gray;
+            cursor: pointer;
+
+            svg {
+              height: 18px;
+              width: 18px;
+              stroke: $text-dark;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      height: 35px;
+      white-space: nowrap;
+      border: none;
+      outline: none;
+      padding: 7px 14px;
+      font-weight: 500;
+      color: $white;
+      background-color: $bg-primary;
+      border-radius: 4px;
+      transition: 200ms;
+
+      &:active {
+        transform: translateY(1px);
+      }
+
+      svg {
+        height: 18px;
+        width: 18px;
+        stroke: #fefefe;
+      }
+    }
+  }
+
+  .messageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+
+    .error {
+      font-size: 14px;
+      color: $text-red;
+      font-weight: bold;
+      width: 100%;
+      text-align: center;
+    }
+
+    .connection {
+      width: 100%;
+      text-align: center;
+      color: $text-primary;
+      font-weight: 600;
+      font-size: 14px;
+      animation: blink infinite linear 2s;
+      letter-spacing: 1px;
+    }
+
+    .connectionRed {
+      color: $text-red;
+      animation: none;
+    }
+    .connectionGreen {
+      color: $text-green;
+      animation: none;
+    }
+
+    @keyframes blink {
+      20% {
+        opacity: 0.2;
+      }
+      60% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    margin-bottom: 12px;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+
+    .inAppSorting {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+
+      .sortbutton {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 8px;
+        border-radius: 5px;
+        border: 1px solid $bg-medium-gray;
+        transition: 200ms;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.01);
+        background-color: $white;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+          background-color: $bg-bluish-white;
+        }
+      }
+
+      .sortDropdown {
+        background-color: $white;
+        position: absolute;
+        border-radius: 5px;
+        top: 45px;
+        border-radius: 8px;
+        border: 1px solid $bg-medium-gray;
+        min-width: 200px;
+
+        li {
+          padding: 14px 18px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          border-bottom: 1px solid $bg-medium-gray;
+          white-space: nowrap;
+        }
+      }
+
+      .iconImageContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 24px;
+        width: 24px;
+        position: relative;
+      }
+
+      .activeSort {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background-color: $bg-red;
+        position: absolute;
+        top: 1px;
+        right: 0px;
+      }
+    }
+
+    .views {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      .icon {
+        border: 1px solid $bg-medium-gray;
+        border-radius: 5px;
+        padding: 5px;
+        transition: 200ms;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          height: 18px;
+          width: auto;
+          filter: $dark-png-filter;
+        }
+
+        &:hover {
+          background-color: $bg-light-gray;
+        }
+        &:active {
+          transform: translateY(1px);
+        }
+      }
+      .active {
+        color: $text-primary;
+        border-color: $bg-primary;
+        background-color: $white !important;
+        img {
+          height: 18px;
+          width: auto;
+          filter: invert(49%) sepia(32%) saturate(1357%) hue-rotate(171deg)
+            brightness(95%) contrast(101%);
+        }
+      }
+    }
+  }
+
+  .selectedStoresContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 18px 15px 18px;
+    .selectedCustomStores {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .customStoreIcon {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        height: 45px;
+        width: 30px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+          filter: drop-shadow(-1px 1px 0 #fff);
+        }
+      }
+    }
+    div {
+      .editIcon {
+        height: 20px;
+        color: $bg-red;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .info {
+    color: $text-dark;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding: 5px;
+    color: #191e22;
+    line-height: 18px;
+
+    .from,
+    .price {
+      text-transform: capitalize;
+      font-weight: 600;
+      color: $text-primary;
+    }
+
+    .title {
+      padding-top: 6px;
+      color: #191e22;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .amazonContainer {
+    background-color: $amazon-shade;
+    box-shadow: 1px 1px 1px $amazon-shade;
+  }
+  .flipkartContainer {
+    background-color: $flipkart-shade;
+    box-shadow: 1px 1px 1px $flipkart-shade;
+  }
+  .ajioContainer {
+    background-color: $ajio-shade;
+    box-shadow: 1px 1px 1px $ajio-shade;
+  }
+  .tatacliqContainer {
+    background-color: $tatacliq-shade;
+    box-shadow: 1px 1px 1px $tatacliq-shade;
+  }
+  .nykaaContainer {
+    background-color: $nykaa-shade;
+    box-shadow: 1px 1px 1px $nykaa-shade;
+  }
+  .meeshoContainer {
+    background-color: $meesho-shade;
+    box-shadow: 1px 1px 1px $meesho-shade;
+  }
+  .snapdealContainer {
+    background-color: $snapdeal-shade;
+    box-shadow: 1px 1px 1px $snapdeal-shade;
+  }
+  .relianceContainer {
+    background-color: $reliance-shade;
+    box-shadow: 1px 1px 1px $reliance-shade;
+  }
+  .cromaContainer {
+    background-color: $croma-shade;
+    box-shadow: 1px 1px 1px $croma-shade;
+  }
+  .shopcluesContainer {
+    background-color: $shopclues-shade;
+    box-shadow: 1px 1px 1px $shopclues-shade;
+  }
+
+  .body {
+    padding: 20px 8px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .spinner {
+      margin-top: 200px;
+    }
+
+    .sortAndFilter {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      display: flex;
+      align-items: center;
+      background-color: $white;
+      width: 100%;
+      box-shadow: 8px 3px 2px rgba(0, 0, 0, 0.05);
+      border-top: 1px solid $bg-medium-gray;
+      cursor: pointer;
+      z-index: 2;
+
+      .globalSortDropdownContainer {
+        position: absolute;
+        top: -510%;
+        left: 10px;
+
+        @media screen and (min-width: 760px) {
+          position: absolute;
+          top: -545%;
+          left: 10px;
+        }
+
+        .customStyles {
+          border: 1px solid $bg-medium-gray;
+          border-radius: 8px;
+          box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+          li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border-bottom: 1px solid $bg-medium-gray;
+            width: 175px;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .globalSortButton {
+        position: relative;
+        flex: 1 1;
+        padding: 12px 18px;
+        border-right: 1px solid $bg-medium-gray;
+
+        .iconImageContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 24px;
+          width: 24px;
+          position: relative;
+        }
+
+        .activeSort {
+          height: 5px;
+          width: 5px;
+          border-radius: 50%;
+          background-color: $bg-red;
+          position: absolute;
+          top: 1px;
+          right: 0px;
+        }
+
+        p {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+        }
+        d &:hover {
+          background-color: $bg-light-gray;
+        }
+      }
+
+      .globalFilterButton {
+        flex: 1 1;
+        padding: 16px 18px;
+        border-left: 1px solid $bg-medium-gray;
+        p {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+
+          div {
+            position: relative;
+            .filterIcon {
+              color: $text-tertiary;
+              height: 19.2px;
+            }
+            .activeFilters {
+              position: absolute;
+              height: 5px;
+              width: 5px;
+              border-radius: 50%;
+              background-color: red;
+            }
+          }
+        }
+      }
+    }
+
+    .customStoreContainer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0px;
+      margin-top: 10px;
+
+      .customHeader {
+        width: 100%;
+        p {
+          text-align: center;
+          font-weight: 500;
+          font-size: 16.8px;
+          color: $text-secondary;
+        }
+
+        .blue {
+          color: $text-primary;
+        }
+
+        .max {
+          color: $text-red;
+        }
+      }
+
+      .customStoreCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        justify-content: center;
+        padding: 10px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+        background-color: $bg-bluish-white;
+        box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+
+        .customImageWrapper {
+          display: flex;
+          padding: 3px;
+          align-items: center;
+          justify-content: center;
+          background-color: $light-white;
+          border-radius: 50%;
+          height: 70px;
+          width: 70px;
+          border: 2px solid $bg-medium-gray;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(-1px 1px 0 #fff);
+          }
+        }
+
+        .text {
+          text-transform: capitalize;
+          font-size: 15px;
+        }
+      }
+
+      .selectedStore {
+        background-color: $bg-secondary;
+        color: $white;
+      }
+    }
+  }
+  .filterContainer {
+    max-height: 65vh;
+    // height: 65vh;
+    overflow: auto;
+    padding-bottom: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
